@@ -41,6 +41,6 @@ int main(){
 	for(int j=0; j<N; j++){
 		if(ar[j]==true) count++;
 	}
-	cout<<"result : "<<count<<endl;
+	cout<<count;
 	return 0;
 }
