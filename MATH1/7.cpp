@@ -2,35 +2,19 @@
 
 using namespace std;
 
-void set(int ar[][14]){
-	int n=0;
-	
-	for(int i=0; i<14; i++){
-		ar[0][i]=i;
-	}
-	
-	for(int i=1; i<14; i++){
-		for(int j=1; j<14; j++){
-			n=0;
-			while(n<=j){
-				ar[i][j] += ar[i-1][n];
-				n++;
-			}
-		}
-	}
+int res(int x, int y){
+	if(x==1) return 1;
+	else if(y==0) return x;
+	else return res(x-1, y)+res(x, y-1);
 }
-
-
 
 int main(){
 	int T, k, n;
-	int ar[14][14]={'\0',};
-	set(ar);
-	
 	cin>>T;
+	
 	for(int i=0; i<T; i++){
 		cin>>k>>n;
-		cout<<ar[k][n]<<endl;
+		cout<<res(n, k)<<endl;
 	}
 	return 0;
 }
